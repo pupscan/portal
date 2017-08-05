@@ -5,16 +5,32 @@
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="contact-box center-version">
-                            <a href="https://ticket.pupscan.com">
-                                <img alt="image" class="img-circle" src="img/a2.jpg">
-                                <h3 class="m-b-xs"><strong>Ticket</strong></h3>
-                                <div class="font-bold"></div>
-                            </a>
-                            <div class="contact-box-footer text-center">
-                                <p>Dasboard of ZenDesk tickets</p>
-                            </div>
-                        </div>
+                        <card icon="fa-sticky-note-o"
+                              icon-color="#f0ad4e"
+                              title="Ticket"
+                              description="Dasboard of ZenDesk tickets"
+                              url="https://ticket.pupscan.com"></card>
+                    </div>
+                    <div class="col-md-2">
+                        <card icon="fa-address-book-o"
+                              icon-color="#d9534f"
+                              title="Client"
+                              description="Contacts book from ZenDesk"
+                              url="https://client.pupscan.com"></card>
+                    </div>
+                    <div class="col-md-2">
+                        <card icon="fa-line-chart"
+                              icon-color="#1c84c6"
+                              title="Metric"
+                              description="Crowdfunding and social metrics"
+                              url="https://metric.pupscan.com"></card>
+                    </div>
+                    <div class="col-md-2">
+                        <card icon="fa-qrcode"
+                              icon-color="#5cb85c"
+                              title="Install"
+                              description="PUP installation and configuration"
+                              url="https://config.pupscan.com"></card>
                     </div>
                 </div>
             </div>
@@ -23,8 +39,12 @@
 </template>
 
 <script>
+  import Card from './components/Card.vue'
+
   export default {
     name: 'app',
-    components: {}
+    components: {
+      Card
+    }
   }
 </script>
