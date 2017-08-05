@@ -3,13 +3,15 @@ import authHttp from './http'
 const debug = process.env.NODE_ENV !== 'production'
 
 export default {
-  isLogged: () => debug ? true : true,
+  isLogged: () => localStorage.token, //debug ? true : true,
   login(username, password) {
     if (username && password) {
       return authHttp.post('/oauth/token?grant_type=password&username=' + username + '&password=' + password)
-        .then(response => console.log(response))
+        .then(response => localStorage.token = response.data.access_token)
     }
+    delete localStorage.token
     return Promise.reject()
   },
-  logout: () => http.defaults.headers.common.Authorization = ''
+  logout: () => delete localStorage.token,
+  token: () => localStorage.token
 }

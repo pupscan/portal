@@ -52,6 +52,9 @@
             this.status = 'error'
           })
       }
+    },
+    created() {
+      auth.logout()
     }
   }
 </script>

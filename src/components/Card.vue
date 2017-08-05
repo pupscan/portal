@@ -1,6 +1,6 @@
 <template>
     <div class="contact-box center-version">
-        <a :href="url" class="card">
+        <a :href="url + '?token='+ token()" class="card">
             <div class="img-circle picto" :style="{'background-color': iconColor}">
                 <i class="fa" :class="icon"></i>
             </div>
@@ -13,9 +13,14 @@
 </template>
 
 <script>
+  import auth from '../authentication'
+
   export default {
     name: 'Card',
-    props: ['icon', 'iconColor', 'title', 'description', 'url']
+    props: ['icon', 'iconColor', 'title', 'description', 'url'],
+    methods: {
+      token: () => auth.token()
+    }
   }
 </script>
 
