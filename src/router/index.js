@@ -9,9 +9,8 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
   mode: 'history',
-  base: __dirname,
   routes: [
-    {path: '/', component: App, beforeEnter: (to, from, next) => auth.isLogged() ? next() : next({path: '/login'})},
+    {path: '/', component: App, beforeEnter: (to, from, next) => auth.isLogged() ? next() : next('/login')},
     {path: '/login', component: Login},
     {path: '*', component: p404}
   ]
