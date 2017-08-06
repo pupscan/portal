@@ -9,14 +9,14 @@
                               icon-color="#f0ad4e"
                               title="Ticket"
                               description="Dasboard of ZenDesk tickets"
-                              url="https://ticket.pupscan.com"></card>
+                              :url="'https://ticket.pupscan.com?token='+ token()"></card>
                     </div>
                     <div class="col-md-2">
                         <card icon="fa-address-book-o"
                               icon-color="#d9534f"
                               title="Client"
                               description="Contacts book from ZenDesk"
-                              url="https://client.pupscan.com"></card>
+                              :url="'https://client.pupscan.com?token='+ token()"></card>
                     </div>
                     <div class="col-md-2">
                         <card icon="fa-line-chart"
@@ -39,12 +39,16 @@
 </template>
 
 <script>
+  import auth from './authentication'
   import Card from './components/Card.vue'
 
   export default {
     name: 'app',
     components: {
       Card
+    },
+    methods: {
+      token: () => auth.token()
     }
   }
 </script>

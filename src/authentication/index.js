@@ -3,7 +3,7 @@ import authHttp from './http'
 const debug = process.env.NODE_ENV !== 'production'
 
 export default {
-  isLogged: () => localStorage.token, //debug ? true : true,
+  isLogged: () => debug ? true : localStorage.token,
   login(username, password) {
     if (username && password) {
       return authHttp.post('/oauth/token?grant_type=password&username=' + username + '&password=' + password)
